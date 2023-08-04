@@ -5,7 +5,7 @@ import axios from "axios";
 function DataRenderer({ endpoint }) {
   const { data, loading, setData } = useApiData(endpoint);
   
-  //roles can be anything fetch from session or JWT and add it here to access Edit Delete Create functionality dynamically
+  //roles can be anything fetch from session or JWT and add it here to access Edit Delete Create functionality dynamically (admin has these features)
   const role = "admin"; // Replace with the actual role value from your app
 
   const [showEditPopup, setShowEditPopup] = useState(false);
