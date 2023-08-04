@@ -1,16 +1,10 @@
 import React from 'react';
-import RegisterPage from './components/auth/register';
-import './App.css';
-import JobsPage from './components/pages/jobs';
-import UserProfilePage from './components/pages/userprofile';
-import HRProfilePage from './components/pages/hrprofile';
-import LoginForm from './components/auth/login';
-
+import useApiData from './useApiData';
+import DataRenderer from './DataRenderer';
 function App() {
   return (
     <div className="App">
-      <LoginForm />
-      test
+      <DataRenderer endpoint="http://localhost:4000/api/area" />
     </div>
   );
 }
