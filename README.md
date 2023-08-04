@@ -1,4 +1,4 @@
-# Data Renderer App
+# Dynamic API Handler Web App
 
 This is a React application that fetches data from an API and displays it in a table. It allows you to edit, delete, and create new entities.
 
