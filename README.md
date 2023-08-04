@@ -48,7 +48,7 @@ Feel free to modify the styles in `tailwind.config.js` to match your project's t
 
 ## Contributors
 
-- Your Name (@yourusername)
+- @Legend0300
 
 If you find any issues or want to contribute, please open an issue or submit a pull request on GitHub.
 
