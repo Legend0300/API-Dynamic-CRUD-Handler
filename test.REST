@@ -1,0 +1,409 @@
+DELETE http://localhost:4000/api/site/642aee4c52d148b9de95d4d0
+Content-Type: application/json
+
+{
+    "siteName": "New Site",
+    "location": "Some location",
+    "country": "Some country",
+    "city": "Some city",
+    "managerInformation": {
+      "fullName": "John Doe",
+      "emailAddress": "johndoe@example.com",
+      "contact": "1234567890",
+      "status": "Enabled"
+}
+}
+###
+
+GET http://localhost:4000/api/site
+
+
+###
+
+PUT http://localhost:4000/api/site/642af31e887a5060fd5ab048
+Content-Type: application/json
+
+{
+  "siteName": "New Sites",
+  "location": "Some locations",
+  "country": "Some countrys",
+  "city": "Some city",
+  "managerInformation": {
+    "fullName": "John Doed",
+    "emailAddress": "johndoe@example.com",
+    "contact": "1234567890",
+    "status": "Enabled"
+  }
+}
+
+
+###
+
+POST http://localhost:4000/api/site
+Content-Type: application/json
+
+{
+  "siteName": "New Sites",
+  "location": "Some locations",
+  "country": "Some countrys",
+  "city": "Some city",
+  "managerInformation": {
+    "fullName": "John Doed",
+    "emailAddress": "johndoe@example.com",
+    "contact": "1234567890",
+    "status": "Enabled"
+  }
+}
+
+
+###
+
+
+
+GET http://localhost:4000/api/site/642af32a887a5060fd5ab04a
+Content-Type: application/json
+
+{
+    "siteName": "New Site",
+    "location": "Some location",
+    "country": "Some country",
+    "city": "Some city",
+    "managerInformation": {
+      "fullName": "John Doe",
+      "emailAddress": "johndoe@example.com",
+      "contact": "1234567890",
+      "status": "Enabled"
+      }
+}
+
+###
+
+GET http://localhost:4000/api/site/642aee4752d148b9de95d4ce
+
+
+###
+
+POST http://localhost:4000/api/department
+Content-Type: application/json
+
+{
+    "site" : "642aee4752d148b9de95d4ce",
+    "department": "New Department2",
+    "status" : "Enabled"
+}
+
+###
+
+POST http://localhost:4000/api/area
+Content-Type: application/json
+
+{
+    "site" : "642aee4752d148b9de95d4ce",
+    "department" : "642b0b0c8b9a5f0c0d0d0d0d",
+    "name": "New Area",
+    "status" : "Enabled"
+}
+
+###
+
+DELETE  http://localhost:4000/api/area/642e118f7c93b43a18f6fd8f
+
+
+###
+
+GET http://localhost:4000/api/area
+
+
+###
+
+GET http://localhost:4000/api/area/
+
+###
+
+POST http://localhost:4000/api/user/register
+Content-Type: application/json
+
+{
+  "picture": "https://example.com/user123.jpgs",
+  "email": "user123@example.coms",
+  "accountType": "Employee",
+  "employeeId": "123456s",
+  "password": "myPassword1"
+}
+
+###
+
+POST http://localhost:4000/api/user/login
+Content-Type: application/json
+
+{
+  "email": "user123@example.com" ,
+  "password": "myPassword"
+
+}
+
+###
+
+GET http://localhost:4000/api/user/6437021a17728513612f2362
+
+
+###
+
+GET http://localhost:4000/api/user/logout
+
+###
+
+POST http://localhost:4000/api/manager/register
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "password123",
+    "picture": "https://example.com/johndoe.png",
+    "role": "Manager"
+}
+
+###
+
+POST http://localhost:4000/api/manager/login
+Content-Type: application/json
+
+{
+    "email": "johndoe@example.com" ,
+    "password": "password123"
+}
+
+
+###
+
+POST http://localhost:4000/api/manager/logout
+
+###
+
+GET http://localhost:4000/api/areaManager
+
+###
+
+///create an area manager through post request
+
+POST http://localhost:4000/api/areaManager
+Content-Type: application/json
+
+{
+    "area": "642e118f7c93b43a18f6fd8f",
+    "name": "John Doe",
+    "email": ""
+}
+
+###
+
+POST http://localhost:4000/api/admin/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "password": "mypassword",
+  "picture": "https://example.com/profile.jpg",
+  "role": "Admin"
+}
+
+###
+
+POST http://localhost:4000/api/admin/login
+Content-Type: application/json
+
+{
+  "email": "johndoe@example.com",
+  "password": "mypassword"
+
+}
+
+###
+
+POST http://localhost:4000/api/admin/logout
+
+###
+
+GET http://localhost:4000/api/admin
+
+###
+
+POST http://localhost:4000/api/dca
+content-type: application/json
+
+{
+  "formName": "Conveyor Safety",
+  "type": "DCA",
+  "questions": [
+    {
+      "Heading": "Conveyor Safety",
+      "Question": "Is the conveyor belt in good condition?",
+      "reportedStatus": "In Progress",
+      "endDate": "2023-05-27T00:00:00Z",
+      "responsibility": "John Doe",
+      "actionRemarks": "N/A"
+    },
+    {
+      "Heading": "Conveyor Safety :p",
+      "Question": "Is the conveyor belt in good condition? 0w0",
+      "reportedStatus": "In Progress",
+      "endDate": "2023-05-27T00:00:00Z",
+      "responsibility": "John Doe",
+      "actionRemarks": "N/A"
+    }
+  ]
+}
+
+
+###
+POST http://localhost:4000/api/dca
+content-type: application/json
+
+{
+  "formName": "Conveyor Safety DCA test",
+  "status" : "Enabled",
+  "questions" : 
+  [
+    {
+    "Heading" : "Conveyor Safety PI1asdasd",
+    "Question"  : "Is the conveyor belt in good condition?asdasd"
+    },
+    {
+    "Heading" : "Conveyor Safety :p adasdasdas",
+    "Question"  : "Is the conveyor belt in good condition? 0w0asdasdas"
+    }
+  ] 
+}
+
+
+###
+
+POST http://localhost:4000/api/pireport
+Content-Type: application/json
+
+{
+  "site": "642aecb8a39fec51ca4b076f",
+  "pi": "64304e557116f10670dc1c3a",
+  "formCompliant": "Compliant",
+  "userType": "Employee",
+  "reportedStatus": "Completed",
+  "reportDate": "2023-04-07",
+  "startDate": "2023-04-01",
+  "endDate": "2023-04-06"
+}
+
+
+###
+
+GET http://localhost:4000/api/pireport/64305721b3ee2e695862536d
+
+###
+POST http://localhost:4000/api/hazardreport
+Content-Type: application/json
+
+{
+    "department": "New Department",
+    "area": "New Area",
+    "actType": "some_type",
+    "userType": "some_type",
+    "reportedStatus": "Pending",
+    "reportDate": "2023-04-09T10:20:30Z",
+    "startDate": "2023-04-09T10:20:30Z",
+    "endDate": "2023-04-09T10:20:30Z",
+    "description": "some description",
+    "responsibility": "some responsibility"
+
+}
+
+###
+POST http://localhost:4000/api/user/register
+Content-Type: application/json
+
+{
+  "picture": "https://example.com/user123.jpgs",
+  "email": "texashouse003@gmail.com",
+  "accountType": "Employee",
+  "employeeId": "123456s1",
+  "password": "pass"
+}
+
+###
+
+POST http://localhost:4000/api/user/login
+Content-Type: application/json
+
+{
+    "email": "texashouse003@gmail.com" ,
+    "password": "pass"
+}
+
+###
+POST http://localhost:4000/api/user/register
+Content-Type: application/json
+
+{
+  "picture": "https://example.com/user123.jpgs",
+  "email": "ahmed.mansur.bhatti@gmail.com",
+  "accountType": "Employee",
+  "employeeId": "123456s12",
+  "password": "pass"
+}
+
+###
+POST http://localhost:4000/api/user/login
+Content-Type: application/json
+
+{
+    "email": "ahmed.mansur.bhatti@gmail.com" ,
+    "password": "pass2"
+}
+
+###
+
+POST http://localhost:4000/api/user/forgot-password
+Content-Type: application/json
+
+{
+    "email": "ahmed.mansur.bhatti@gmail.com"
+}
+
+###
+
+POST http://localhost:4000/api/user/reset-password/1m9rw5judsh
+Content-Type: application/json
+
+{
+  "password": "pass2"
+}
+
+###
+POST http://localhost:4000/api/reportingDetails
+Content-Type: application/json
+
+{
+    "Heading": "Report Heading",
+    "department": "New Department",
+    "area": "New Area",
+    "description": "Report Description",
+    "date": "2023-04-16T10:00:00.000Z",
+    "photos": "https://cdn.pixabay.com/photo/2014/06/03/19/38/road-sign-361514_960_720.png",
+    "responsibility": "John Doe"
+}
+
+###
+
+POST http://localhost:4000/api/areaManager
+Content-Type: application/json
+
+{
+  "fullName": "John Doe",
+  "emailAddress": "hello@hello.com",
+  "site": "642aecb8a39fec51ca4b076f",
+  "contact": "1234567890",
+  "department": "642f1b9c7d84bc4a18f6fd8e",
+  "area": "642e118f7c93b43a18f6fd8f",
+  "status": "Enabled"
+}
+

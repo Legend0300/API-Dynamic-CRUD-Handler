@@ -4,7 +4,10 @@ import DataRenderer from './DataRenderer';
 function App() {
   return (
     <div className="App">
-      <DataRenderer endpoint="http://localhost:4000/api/area" />
+      <DataRenderer endpoint="http://localhost:4000/api/area"  />
+
+
+
     </div>
   );
 }
