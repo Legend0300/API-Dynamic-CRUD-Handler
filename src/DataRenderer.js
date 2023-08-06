@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import _ from "lodash";
 import {useApiData , login} from "./useApiData";
+import jwt_decode from "jwt-decode";
 
 function EditPopup({ editedData, setEditedData, handleSaveClick, handleClosePopup }) {
   const renderFormFields = (data, keyPath = "") => {
@@ -202,22 +203,28 @@ function DataTable({ data, setData, role, handleEditClick, deleteAction }) {
 
 function DataRenderer({ endpoint }) { 
   const [token, setToken] = useState(null);
+  const [role , setRole] = useState(null);
 
   useEffect(() => {
     const returnToken = async () => {
       // Call the login function to get the token
-      const token = await login("texashouse003@gmail.com", "pass", "http://localhost:4000/api/user/login");
-
+      const token = await login("johndoe@example.com", "mypassword", "http://localhost:4000/api/admin/login");  
       // Set the token in localStorage or sessionStorage
       localStorage.setItem('jwt', token);
-      // sessionStorage.setItem('userjwt', token); // Use sessionStorage if needed
-
+  
       // Update the state with the token
       setToken(token);
+  
+      var decodedHeader = jwt_decode(token);
+  
+      console.log("Decoded Token:", decodedHeader); // Add this line to check the decoded token
+  
+      setRole(decodedHeader.user.role);
     };
-
+  
     returnToken();
   }, []);
+  
 
 
   const { data, loading, setData } = useApiData(endpoint);
@@ -225,14 +232,11 @@ function DataRenderer({ endpoint }) {
   
   if (token) {
     // Do something with the cookie value, e.g., display it or use it in your application.
-    console.log("Found cookie");
   } else {
     // Cookie not found, handle this case as per your application's logic.
     console.log("Cookie not found");
   }
-   
 
-  const role = "admin"
 
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [editedData, setEditedData] = useState(null);
@@ -242,7 +246,7 @@ function DataRenderer({ endpoint }) {
     try {
       // Get token from localStorage or sessionStorage
       const token =
-        localStorage.getItem("userjwt") || sessionStorage.getItem("userjwt");
+        localStorage.getItem("jwt")
 
       // If token is found, add it to the request headers
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
@@ -273,7 +277,7 @@ function DataRenderer({ endpoint }) {
 
       // Get token from localStorage or sessionStorage
       const token =
-        localStorage.getItem("userjwt") || sessionStorage.getItem("userjwt");
+        localStorage.getItem("jwt")
 
       // If token is found, add it to the request headers
       const headers = token ? { Authorization: `Bearer ${token}` } : {};

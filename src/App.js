@@ -4,7 +4,7 @@ import DataRenderer from './DataRenderer';
 function App() {
   return (
     <div className="App">
-      <DataRenderer endpoint="your Desired Endpoint" />
+      <DataRenderer endpoint="http://localhost:4000/api/reportingDetails" />
     </div>
   );
 }
